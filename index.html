@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertir fotos a PDF gratis, online y sin registro | FotoaPDF</title>
+  <meta name="description" content="Convierte fotos JPG, PNG y WEBP a un solo PDF gratis. Sin registro, sin marcas de agua y sin subir tus imágenes: todo se procesa en tu navegador.">
+  <link rel="canonical" href="https://tudominio.com/">
+  <meta property="og:title" content="Convertir fotos a PDF gratis | FotoaPDF">
+  <meta property="og:description" content="Une tus fotos en un PDF en segundos. Gratis, privado y sin marcas de agua.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tudominio.com/">
+  <meta name="theme-color" content="#e5484d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <!-- Google AdSense (sustituye ca-pub-XXXXXXXXXXXXXXXX por tu ID de editor) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FotoaPDF",
+    "url": "https://tudominio.com/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Cualquiera (navegador web)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN" },
+    "description": "Convierte fotos a PDF gratis directamente en tu navegador."
+  }
+  </script>
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a href="./" class="logo"><span class="logo__icono">PDF</span> FotoaPDF</a>
+      <nav class="menu">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="acerca.html">Acerca de</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="contenedor">
+        <h1>Convertir fotos a PDF gratis</h1>
+        <p class="hero__sub">Une tus imágenes JPG, PNG o WEBP en un solo PDF. Sin registro y sin marcas de agua. Tus fotos <strong>no salen de tu dispositivo</strong>.</p>
+      </div>
+    </section>
+
+    <!-- Anuncio superior -->
+    <div class="contenedor">
+      <div class="anuncio">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1111111111"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <section class="contenedor herramienta" aria-label="Convertidor">
+      <div id="zona" class="zona" tabindex="0" role="button" aria-label="Selecciona o arrastra tus fotos">
+        <input id="archivos" type="file" accept="image/*" multiple hidden>
+        <svg class="zona__icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13v6H5v-6H3v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2zM12 3 7 8h4v8h2V8h4z"/></svg>
+        <p class="zona__titulo">Arrastra tus fotos aquí</p>
+        <p class="zona__texto">o <span class="enlace">haz clic para seleccionarlas</span> · JPG, PNG, WEBP, GIF, BMP</p>
+      </div>
+
+      <div id="panel" class="panel" hidden>
+        <div class="panel__barra">
+          <p><strong id="contador">0</strong> imagen(es) · arrastra las miniaturas para cambiar el orden</p>
+          <div class="panel__acciones">
+            <button type="button" class="btn btn--sec" id="agregar">+ Agregar más</button>
+            <button type="button" class="btn btn--sec" id="ordenar">Ordenar por nombre</button>
+            <button type="button" class="btn btn--sec" id="limpiar">Quitar todas</button>
+          </div>
+        </div>
+
+        <ul id="lista" class="lista"></ul>
+
+        <div class="opciones">
+          <label>Tamaño de página
+            <select id="tamano">
+              <option value="ajustar">Ajustar a cada foto</option>
+              <option value="a4" selected>A4</option>
+              <option value="letter">Carta</option>
+              <option value="legal">Oficio</option>
+            </select>
+          </label>
+          <label>Orientación
+            <select id="orientacion">
+              <option value="auto" selected>Automática</option>
+              <option value="p">Vertical</option>
+              <option value="l">Horizontal</option>
+            </select>
+          </label>
+          <label>Margen
+            <select id="margen">
+              <option value="0">Sin margen</option>
+              <option value="20" selected>Pequeño</option>
+              <option value="45">Grande</option>
+            </select>
+          </label>
+          <label>Calidad
+            <select id="calidad">
+              <option value="alta">Alta (archivo más grande)</option>
+              <option value="media" selected>Media (recomendada)</option>
+              <option value="baja">Baja (archivo más ligero)</option>
+            </select>
+          </label>
+          <label class="opciones__nombre">Nombre del archivo
+            <input id="nombre" type="text" value="mis-fotos" maxlength="80">
+          </label>
+        </div>
+
+        <button type="button" class="btn btn--pri btn--grande" id="convertir">Convertir a PDF</button>
+        <div id="progreso" class="progreso" hidden><div class="progreso__barra"></div><span class="progreso__texto"></span></div>
+        <p id="resultado" class="resultado" hidden></p>
+      </div>
+    </section>
+
+    <!-- Anuncio intermedio -->
+    <div class="contenedor">
+      <div class="anuncio">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="2222222222"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+
+    <section id="como-funciona" class="contenedor contenido">
+      <h2>Cómo convertir fotos a PDF en 3 pasos</h2>
+      <ol class="pasos">
+        <li><strong>Sube tus fotos.</strong> Arrástralas al recuadro o selecciónalas desde tu computadora o celular. Puedes elegir varias a la vez.</li>
+        <li><strong>Organízalas.</strong> Cambia el orden arrastrando las miniaturas o con las flechas, gira las que estén de lado y elimina las que no necesites.</li>
+        <li><strong>Descarga tu PDF.</strong> Elige tamaño de página, margen y calidad, y pulsa <em>Convertir a PDF</em>. El archivo se descarga al instante.</li>
+      </ol>
+
+      <div class="ventajas">
+        <article>
+          <h3>100 % privado</h3>
+          <p>La conversión ocurre dentro de tu navegador. Tus imágenes no se suben a ningún servidor, así que nadie más puede verlas.</p>
+        </article>
+        <article>
+          <h3>Gratis y sin límites</h3>
+          <p>No necesitas cuenta ni suscripción. Convierte todas las fotos que quieras y no agregamos marcas de agua.</p>
+        </article>
+        <article>
+          <h3>Funciona en el celular</h3>
+          <p>Úsalo en Android, iPhone, Windows, Mac o Linux. Solo necesitas un navegador actualizado.</p>
+        </article>
+      </div>
+
+      <h2>¿Para qué sirve convertir imágenes a PDF?</h2>
+      <p>El PDF es el formato más aceptado para enviar documentos. Convertir tus fotos a PDF te sirve para:</p>
+      <ul>
+        <li>Enviar identificaciones, comprobantes de domicilio o actas fotografiadas con el celular a una oficina o empresa.</li>
+        <li>Entregar tareas, apuntes o exámenes escritos a mano como un solo archivo.</li>
+        <li>Juntar recibos y facturas para tu contabilidad o para comprobar gastos.</li>
+        <li>Armar un portafolio o catálogo de productos fácil de compartir por correo o WhatsApp.</li>
+      </ul>
+      <p>Si el PDF pesa demasiado para enviarlo por correo, elige la calidad <em>Baja</em>: el archivo será mucho más ligero y el texto seguirá leyéndose bien.</p>
+    </section>
+
+    <section id="preguntas" class="contenedor contenido">
+      <h2>Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Es realmente gratis?</summary>
+        <p>Sí. FotoaPDF es gratuito y se mantiene gracias a los anuncios que ves en la página. No hay planes de pago ni funciones bloqueadas.</p>
+      </details>
+      <details>
+        <summary>¿Mis fotos se suben a internet?</summary>
+        <p>No. Todo el proceso ocurre en tu dispositivo con JavaScript. Al cerrar la pestaña, las imágenes desaparecen de la memoria del navegador.</p>
+      </details>
+      <details>
+        <summary>¿Cuántas fotos puedo convertir a la vez?</summary>
+        <p>No hay un límite fijo; depende de la memoria de tu dispositivo. En una computadora puedes unir cientos de fotos. En celulares antiguos te recomendamos menos de 50 por PDF.</p>
+      </details>
+      <details>
+        <summary>¿Qué formatos de imagen acepta?</summary>
+        <p>JPG/JPEG, PNG, WEBP, GIF (primer cuadro) y BMP. Las fotos HEIC de iPhone funcionan en Safari; en otros navegadores conviértelas antes a JPG o configura el iPhone en <em>Ajustes › Cámara › Formatos › Más compatible</em>.</p>
+      </details>
+      <details>
+        <summary>¿Cuál tamaño de página debo elegir?</summary>
+        <p><strong>Carta</strong> es el estándar en México y Estados Unidos; <strong>A4</strong> en casi todo el resto del mundo. <em>Ajustar a cada foto</em> crea páginas del tamaño exacto de cada imagen, sin bordes blancos.</p>
+      </details>
+      <details>
+        <summary>¿Por qué mi PDF pesa mucho?</summary>
+        <p>Las fotos de celulares modernos tienen muchísima resolución. Elige la calidad <em>Media</em> o <em>Baja</em> para reducir el tamaño del archivo.</p>
+      </details>
+    </section>
+
+    <!-- Anuncio inferior -->
+    <div class="contenedor">
+      <div class="anuncio">
+        <ins class="adsbygoogle" style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="3333333333"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__fila">
+      <p>© <span class="anio"></span> FotoaPDF. Herramienta gratuita para convertir imágenes a PDF.</p>
+      <nav>
+        <a href="acerca.html">Acerca de</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de uso</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="vendor/jspdf.umd.min.js" defer></script>
+  <script src="js/anuncios.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
